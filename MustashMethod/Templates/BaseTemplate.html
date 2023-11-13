@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<style>
+    body{
+        font-family:'Times New Roman', Times, serif;
+        color: black;
+        flex-wrap:wrap;
+    }
+    h1, h3{
+        font-weight:bold;
+    }
+
+</style>
+
+<html>
+<head>
+    <title>Example Base Report</title>
+    <meta name="description" content="An example of html templating using the mustash method">
+    <meta name="keywords" content="html mustash templating">
+</head>
+<body>
+    <h1>{{Header}}</h1>
+
+    <p> This is job Number {{JobId}}, commencing at job location {{Location}}. 
+    This job was lead and completed by {{Worker}} in accordance to the contract of the customer {{Customer}}
+    For any found issues, future work or referals contact (Example number)</p>
+
+    <h3>{{Subheader}}</h3>
+    <p>{{OpeningPara}}</p>
+
+    <table>
+        <tr>
+            <td>Work Start Date : {{StartTime}}</td>
+            <td>Work End Date : {{EndTime}}</td>
+        </tr>
+    </table>
+
+    <h5>The following is an itemized list of costs for the completed job. 
+    For any queries about prices or materials please contact the number earlier in the document</h5>
+    <table>
+        <thead>
+            <tr>
+                <td>Item</td>
+                <td>Cost</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Labour Cost</td>
+                <td>{{Labour}}</td>
+            </tr>
+            <tr>
+                <td>Transportation Costs</td>
+                <td>{{Transport}}</td>
+            </tr>
+            {{#MaterialList}} <!--If list not empty show-->
+            <tr>
+                <td>{{Item}}</td>
+                <td>{{Price}}</td>
+            </tr>
+            {{/MaterialList}}
+            <tr>
+                <td>Total</td>
+                <td>{{Total}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>{{EndingPara}}</p>
+    Content goes here.
+</body>
+</html>
