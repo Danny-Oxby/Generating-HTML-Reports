@@ -18,7 +18,7 @@ namespace AccessHub
             {
                 // Copying source file's contents to
                 // destination file
-                File.Copy(sourceFile, destinationFile);
+                //File.Copy(sourceFile, destinationFile);
             }
             catch (IOException iox)
             {
