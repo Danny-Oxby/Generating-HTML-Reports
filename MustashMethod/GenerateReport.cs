@@ -72,7 +72,12 @@ namespace MustashMethod
         //for this example project
         public static void DownloadSelectedFile(string SaveName)
         {
-            string SaveLocation = Path.Combine(Path.GetTempPath(), $"{SaveName}.html");
+            string TempLocation = Path.Combine(Path.GetTempPath(), $"{SaveName}.html");
+
+            //"C:\Users\USER_NAME\Downloads"
+            string? DownloadsLocation = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", $"{SaveName}.html");
+
+            File.Copy(TempLocation, DownloadsLocation);
         }
 
     }
