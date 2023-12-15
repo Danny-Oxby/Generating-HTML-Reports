@@ -6,7 +6,7 @@
         public List<MaterialPriceModel> ListOfMaterials { get; set; } = default!;
         public double CostOfLabour { get; set; } //Wage * total time
         public double CostOfTransport { get; set; } //Fuel
-        public string Location { get; set; } = default!; //where the work was for
+        public string JobLocation { get; set; } = default!; //where the work was for
         public DateTime WorkDateStart { get; set; } //when it started
         public DateTime WorkDateEnd { get; set; } //when it ended
         public double TotalCost { 

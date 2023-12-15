@@ -7,7 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Stubble.Core" Version="1.10.8" />
+    <None Remove="Templates\BaseTemplate.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mustache.NETStandard" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Templates\BaseTemplate.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

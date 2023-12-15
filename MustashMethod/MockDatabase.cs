@@ -5,18 +5,16 @@ namespace MustashMethod
 {
     public static class MockDatabase
     {
-        public static List<JobLinkTabkeModel> ReturnModelData()
-        {
-            List<JobLinkTabkeModel> _retrurnList = new List<JobLinkTabkeModel>
+        private static readonly List<JobLinkTabkeModel> MockDataAsList = new List<JobLinkTabkeModel>
             {
                 new JobLinkTabkeModel()
                 {
-                    JobNumber = 1,
+                    JobId = 1,
                     CustomerID = 1,
                     WorkerId = 1,
-                    JobID = new()
+                    JobValues = new()
                     {
-                        Location = "Lincon",
+                        JobLocation = "Lincon",
                         CostOfLabour = 55,
                         CostOfTransport = 24,
                         WorkDateStart = new(2023, 1, 1, 9, 1, 1), //Jan first 9am
@@ -31,16 +29,16 @@ namespace MustashMethod
                 },
                 new JobLinkTabkeModel()
                 {
-                    JobNumber = 2,
+                    JobId = 2,
                     CustomerID = 2,
                     WorkerId = 1,
-                    JobID = new()
+                    JobValues = new()
                     {
-                        Location = "Worksop",
+                        JobLocation = "Worksop",
                         CostOfLabour = 25,
                         CostOfTransport = 13,
-                        WorkDateStart = new(2023, 3, 1, 9, 1, 1), 
-                        WorkDateEnd = new(2023, 3, 6, 18, 1, 1), 
+                        WorkDateStart = new(2023, 3, 1, 9, 1, 1),
+                        WorkDateEnd = new(2023, 3, 6, 18, 1, 1),
                         ListOfMaterials = new List<MaterialPriceModel>{
                         new MaterialPriceModel() {MaterialCost = 34.99, MaterialName = "door"},
                         new MaterialPriceModel() {MaterialCost = 3.99, MaterialName = "hinge set"},
@@ -50,12 +48,12 @@ namespace MustashMethod
                 },
                 new JobLinkTabkeModel()
                 {
-                    JobNumber = 3,
+                    JobId = 3,
                     CustomerID = 1,
                     WorkerId = 2,
-                    JobID = new()
+                    JobValues = new()
                     {
-                        Location = "Doncaster",
+                        JobLocation = "Doncaster",
                         CostOfLabour = 127,
                         CostOfTransport = 56,
                         WorkDateStart = new(2023, 11, 20, 9, 1, 1),
@@ -70,7 +68,15 @@ namespace MustashMethod
                 }
             };
 
-            return _retrurnList;
+        public static List<JobLinkTabkeModel> ReturnAllModelData()
+        {
+            return MockDataAsList;
+        }
+
+        //Return the found job by Id or Null
+        public static JobLinkTabkeModel? ReturnJobData(int JobId)
+        {
+            return MockDataAsList.Where(o => o.JobId == JobId).FirstOrDefault();
         }
     }
 }

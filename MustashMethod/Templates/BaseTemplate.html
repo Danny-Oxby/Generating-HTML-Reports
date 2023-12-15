@@ -20,13 +20,11 @@
 <body>
     <h1>{{Header}}</h1>
 
-    <p> This is job Number {{JobId}}, commencing at job location {{Location}}. 
-    This job was lead and completed by {{Worker}} in accordance to the contract of the customer {{Customer}}
-    For any found issues, future work or referals contact (Example number)</p>
+    <p> This is job Number {{JobId}}, commencing at job location {{Location}}. </p>
+    <p> This job was lead and completed by {{Worker}} in accordance to the contract of the customer {{Customer}}.</p>
+    <p> For any: found issues, future work or referals contact (Example number)</p>
 
-    <h3>{{Subheader}}</h3>
     <p>{{OpeningPara}}</p>
-
     <table>
         <tr>
             <td>Work Start Date : {{StartTime}}</td>
@@ -34,8 +32,10 @@
         </tr>
     </table>
 
-    <h5>The following is an itemized list of costs for the completed job. 
-    For any queries about prices or materials please contact the number earlier in the document</h5>
+    <h5>
+        The following is an itemized list of costs for the completed job.
+        For any queries about prices or materials please contact the number earlier in the document
+    </h5>
     <table>
         <thead>
             <tr>
@@ -54,8 +54,8 @@
             </tr>
             {{#MaterialList}} <!--If list not empty show-->
             <tr>
-                <td>{{Item}}</td>
-                <td>{{Price}}</td>
+                <td>{{MaterialName}}</td>
+                <td>{{MaterialCost}}</td>
             </tr>
             {{/MaterialList}}
             <tr>
@@ -65,6 +65,6 @@
         </tbody>
     </table>
     <p>{{EndingPara}}</p>
-    Content goes here.
+    Specified Context goes here e.g.contact number.
 </body>
 </html>

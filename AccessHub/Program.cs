@@ -1,5 +1,4 @@
 ﻿using MustashMethod;
-using System.Diagnostics;
 
 namespace AccessHub
 {
@@ -7,22 +6,16 @@ namespace AccessHub
     {
         static void Main(string[] args)
         {
-            var values = MockDatabase.ReturnModelData();
-
-            //foreach (var item in values)
-            //{
-            //    Console.WriteLine(item.JobNumber);
-            //}
 
             try
             {
-                // Copying source file's contents to
-                // destination file
-                //File.Copy(sourceFile, destinationFile);
+                GenerateReport.CreateJobReport(1, "ExampleReport");
+
+                GenerateReport.DownloadSelectedFile("ExampleReport");
             }
-            catch (IOException iox)
+            catch (Exception ex)
             {
-                Console.WriteLine(iox.Message);
+                Console.WriteLine(ex.Message);
             }
         }
     }
