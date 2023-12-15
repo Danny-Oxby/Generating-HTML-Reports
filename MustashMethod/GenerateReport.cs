@@ -1,4 +1,6 @@
-﻿using Mustache;
+﻿using DatabaseAccess;
+using DatabaseAccess.Models;
+using Mustache;
 
 namespace MustashMethod
 {
@@ -8,38 +10,54 @@ namespace MustashMethod
         {
             var FoundJob = MockDatabase.ReturnJobData(JobNumber);
 
-            if ( FoundJob != null)
+            if (FoundJob != null)
             {
-                string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
-                string sFile = Path.Combine(sCurrentDirectory, @"..\..\..\..\MustashMethod\Templates\BaseTemplate.html");
-                string sFilePath = Path.GetFullPath(sFile);
+                //This finds the path to the HTML template's current location
+                //(this is not done cleanly and future improvement are recommended)
+                string relationalPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\MustashMethod\Templates\BaseTemplate.html");
+                string absolutePath = Path.GetFullPath(relationalPath);
 
-                string templateString = File.ReadAllText(sFilePath);
+                string templateString = File.ReadAllText(absolutePath);
 
-                var InputValues = new
-                {
-                    Header = $"Invoice for Job {JobNumber}",
-                    JobId = JobNumber,
-                    Location = FoundJob.JobValues.JobLocation,
-                    Worker = FoundJob.WorkerId,
-                    Customer = FoundJob.CustomerID,
-                    OpeningPara = "This is an example of a personalised message to the client, such as the workers notes about the job",
-                    StartTime = FoundJob.JobValues.WorkDateStart,
-                    EndTime = FoundJob.JobValues.WorkDateEnd,
-                    Labour = FoundJob.JobValues.CostOfLabour,
-                    Transport = FoundJob.JobValues.CostOfTransport,
-                    MaterialList = FoundJob.JobValues.ListOfMaterials,
-                    Total = FoundJob.JobValues.TotalCost,
-                    EndingPara = "This is another example of a personalised message to the client, such as a company message or ending",
-                };
-
-                string result = Template.Compile(templateString).Render(InputValues);
+                string result = CompileReport(JobNumber, FoundJob, templateString);
 
                 if (!CanGenerateFileInTemp(SaveName, result))
                     Console.WriteLine("Error occured when trying to save report");
             }
             else
                 Console.WriteLine("There was no matching Job Id");
+        }
+
+        private static string CompileReport(int JobNumber, JobModelMdlLink FoundJob, string templateString)
+        {
+            var InputValues = new
+            {
+                Header = $"Invoice for Job {JobNumber}",
+                JobId = JobNumber,
+                Location = FoundJob.JobValues.JobLocation,
+                Worker = FoundJob.WorkerId,
+                Customer = FoundJob.CustomerID,
+                OpeningPara = "This is an example of a personalised message to the client, such as the workers notes about the job",
+                StartTime = FoundJob.JobValues.WorkDateStart,
+                EndTime = FoundJob.JobValues.WorkDateEnd,
+                Labour = FoundJob.JobValues.CostOfLabour,
+                Transport = FoundJob.JobValues.CostOfTransport,
+                MaterialList = FoundJob.JobValues.ListOfMaterials,
+                Total = FoundJob.JobValues.TotalCost,
+                EndingPara = "This is another example of a personalised message to the client, such as a company message or ending",
+            };
+
+            try
+            {
+                return Template.Compile(templateString).Render(InputValues);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unable to Compile Report for Job {JobNumber}");
+                Console.WriteLine(ex.Message + "\n" + ex.StackTrace);
+                Console.WriteLine(" --------- ");
+            }
+            return "Generation Issue";
         }
 
         private static bool CanGenerateFileInTemp(string SaveName, string Report)
@@ -56,7 +74,6 @@ namespace MustashMethod
             }
             catch (Exception ex)
             {
-                Console.WriteLine("ERROR HERE");
                 Console.WriteLine(ex.Message + "\n" + ex.StackTrace);
                 Console.WriteLine(" --------- ");
             }

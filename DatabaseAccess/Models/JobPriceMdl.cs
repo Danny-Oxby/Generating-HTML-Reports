@@ -1,9 +1,9 @@
-﻿namespace MustashMethod.Models
+﻿namespace DatabaseAccess.Models
 {
     //the price information related to a jobs materials, location and date
-    public class JobPriceModel
+    public class JobPriceMdl
     {
-        public List<MaterialPriceModel> ListOfMaterials { get; set; } = default!;
+        public List<MaterialPriceMdl> ListOfMaterials { get; set; } = default!;
         public double CostOfLabour { get; set; } //Wage * total time
         public double CostOfTransport { get; set; } //Fuel
         public string JobLocation { get; set; } = default!; //where the work was for

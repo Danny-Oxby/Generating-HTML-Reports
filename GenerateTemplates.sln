@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessHub", "AccessHub\AccessHub.csproj", "{0A4631EC-FBF3-4DE2-86A5-375E35CA5348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccessHub", "AccessHub\AccessHub.csproj", "{0A4631EC-FBF3-4DE2-86A5-375E35CA5348}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MustashMethod", "MustashMethod\MustashMethod.csproj", "{451C8B14-25A5-411D-A689-4EA7AEFEFD5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MustashMethod", "MustashMethod\MustashMethod.csproj", "{451C8B14-25A5-411D-A689-4EA7AEFEFD5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseAccess", "DatabaseAccess\DatabaseAccess.csproj", "{697B584C-36A0-44A3-87B9-410311258819}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{451C8B14-25A5-411D-A689-4EA7AEFEFD5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{451C8B14-25A5-411D-A689-4EA7AEFEFD5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{451C8B14-25A5-411D-A689-4EA7AEFEFD5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{697B584C-36A0-44A3-87B9-410311258819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{697B584C-36A0-44A3-87B9-410311258819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{697B584C-36A0-44A3-87B9-410311258819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{697B584C-36A0-44A3-87B9-410311258819}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
