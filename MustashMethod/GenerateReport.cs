@@ -1,23 +1,20 @@
 ﻿using Mustache;
-using System.IO.Compression;
-using System.Reflection;
 
 namespace MustashMethod
 {
     public class GenerateReport
     {
-
         public static void CreateJobReport(int JobNumber, string SaveName)
         {
             var FoundJob = MockDatabase.ReturnJobData(JobNumber);
 
             if ( FoundJob != null)
             {
-                //string DirectoryLocation = Assembly.GetExecutingAssembly().Location;
-                //string DirectoryLocation = Environment.CurrentDirectory;
-                string Path = "C:\\Users\\oxbyd\\OneDrive\\Documents\\HomeProjects\\HTMLTemplates\\GenerateTemplates\\MustashMethod\\Templates\\BaseTemplate.html";
-                string templateString = File.ReadAllText(Path);
-                //string templateString = File.ReadAllText($"./Templates/BaseTemplate.html");
+                string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string sFile = Path.Combine(sCurrentDirectory, @"..\..\..\..\MustashMethod\Templates\BaseTemplate.html");
+                string sFilePath = Path.GetFullPath(sFile);
+
+                string templateString = File.ReadAllText(sFilePath);
 
                 var InputValues = new
                 {
@@ -77,7 +74,7 @@ namespace MustashMethod
             //"C:\Users\USER_NAME\Downloads"
             string? DownloadsLocation = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads", $"{SaveName}.html");
 
-            File.Copy(TempLocation, DownloadsLocation);
+            File.Copy(TempLocation, DownloadsLocation, true);
         }
 
     }
