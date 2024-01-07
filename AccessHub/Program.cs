@@ -8,7 +8,7 @@ namespace AccessHub
         {
             try
             {
-                if (GenerateReport.CreateJobReport(3, "ExampleReport"))
+                if (GenerateReport.CreateJobReport(1, "ExampleReport"))
                 {
 
                     GenerateReport.DownloadSelectedFile("ExampleReport");
