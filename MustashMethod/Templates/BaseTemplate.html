@@ -8,6 +8,26 @@
     h1, h3{
         font-weight:bold;
     }
+    h1{
+        text-align:center;
+    }
+    hr{
+        border: 1px solid grey;
+    }
+    table {
+        border: 1px solid black;
+        margin: 5px 15px;
+    }
+    th {
+        border-bottom: 1px solid black;
+        background-color: lightgray;
+    }
+    td{
+        text-transform:capitalize;
+    }
+    #LightFooter{
+        color:grey;
+    }
 
 </style>
 
@@ -20,30 +40,26 @@
 <body>
     <h1>{{Header}}</h1>
 
-    <p> This is job Number {{JobId}}, commencing at job location {{Location}}. </p>
+    <h3> This is job Number {{JobId}}, commencing at job location {{Location}}. </h3>
     <p> This job was lead and completed by {{Worker}} in accordance to the contract of the customer {{Customer}}.</p>
-    <p> For any: found issues, future work or referals contact (Example number)</p>
+    <p> For any: found issues, future work or referals contact. Phone Number : 888-888-8888 (Example number)</p>
 
+    <br />
     <p>{{OpeningPara}}</p>
-    <table>
-        <tr>
-            <td>Work Start Date : {{StartTime}}</td>
-            <td>Work End Date : {{EndTime}}</td>
-        </tr>
-    </table>
+    <p>
+        Work Start Date : {{StartTime}}, Work End Date : {{EndTime}}
+    </p>
 
     <h5>
         The following is an itemized list of costs for the completed job.
         For any queries about prices or materials please contact the number earlier in the document
     </h5>
     <table>
-        <thead>
-            <tr>
-                <td>Item</td>
-                <td>Cost</td>
-            </tr>
-        </thead>
         <tbody>
+            <tr>
+                <th>Item</th>
+                <th>Cost</th>
+            </tr>
             <tr>
                 <td>Labour Cost</td>
                 <td>{{Labour}}</td>
@@ -55,7 +71,7 @@
             {{#MaterialList}} <!--If list not empty show-->
             <tr>
                 <td>{{MaterialName}}</td>
-                <td>{{MaterialCost}}</td>
+                <td style="">{{MaterialCost}}</td>
             </tr>
             {{/MaterialList}}
             <tr>
@@ -65,6 +81,11 @@
         </tbody>
     </table>
     <p>{{EndingPara}}</p>
-    Specified Context goes here e.g.contact number.
+    <hr>
+    <p id="LightFooter">
+        Specified Context goes here e.g.contact number.<br />
+        Example company name<br />
+        Phone Number : 999-999-9999
+    </p>
 </body>
 </html>

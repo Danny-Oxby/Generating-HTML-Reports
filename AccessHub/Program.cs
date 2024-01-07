@@ -8,13 +8,21 @@ namespace AccessHub
         {
             try
             {
-                GenerateReport.CreateJobReport(1, "ExampleReport");
+                if (GenerateReport.CreateJobReport(3, "ExampleReport"))
+                {
 
-                GenerateReport.DownloadSelectedFile("ExampleReport");
+                    GenerateReport.DownloadSelectedFile("ExampleReport");
 
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("Report Successfully Created");
-                Console.ForegroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("Report Successfully Created");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("Report Failed to Create");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             }
             catch (Exception ex)
             {

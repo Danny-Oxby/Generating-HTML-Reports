@@ -9,13 +9,13 @@
         public string JobLocation { get; set; } = default!; //where the work was for
         public DateTime WorkDateStart { get; set; } //when it started
         public DateTime WorkDateEnd { get; set; } //when it ended
-        public double TotalCost { 
+        public string TotalCost { 
             get{ 
                 double _runningTotal = CostOfLabour + CostOfTransport;
                 foreach (var item in ListOfMaterials)
                     _runningTotal += item.MaterialCost;
 
-                return double.Round(_runningTotal, 2); 
+                return string.Format("{0:0.00}",double.Round(_runningTotal, 2));
             }
         } //what was the total cost of the job
     }

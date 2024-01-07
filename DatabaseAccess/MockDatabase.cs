@@ -15,15 +15,15 @@ namespace DatabaseAccess
                     JobValues = new()
                     {
                         JobLocation = "Lincon",
-                        CostOfLabour = 55,
-                        CostOfTransport = 24,
+                        CostOfLabour = 55.55,
+                        CostOfTransport = 24.21,
                         WorkDateStart = new(2023, 1, 1, 9, 1, 1), //Jan first 9am
                         WorkDateEnd = new(2023, 1, 6, 12, 1, 1), //Jan sixth 12am
                         ListOfMaterials = new List<MaterialPriceMdl>{
-                        new MaterialPriceMdl() {MaterialCost = 4.99, MaterialName = "screws"},
-                        new MaterialPriceMdl() {MaterialCost = 15.99, MaterialName = "2 2x4 wood planks"},
-                        new MaterialPriceMdl() {MaterialCost = 3.99, MaterialName = "hinge set"},
-                        new MaterialPriceMdl() {MaterialCost = 12.99, MaterialName = "paint"},
+                        new MaterialPriceMdl() {MaterialCost = 4.99, MaterialName = "Screws"},
+                        new MaterialPriceMdl() {MaterialCost = 15.99, MaterialName = "2 2x4 Wood planks"},
+                        new MaterialPriceMdl() {MaterialCost = 3.99, MaterialName = "Hinge set"},
+                        new MaterialPriceMdl() {MaterialCost = 12.99, MaterialName = "Paint"},
                         }
                     }
                 },
@@ -35,14 +35,14 @@ namespace DatabaseAccess
                     JobValues = new()
                     {
                         JobLocation = "Worksop",
-                        CostOfLabour = 25,
-                        CostOfTransport = 13,
+                        CostOfLabour = 25.09,
+                        CostOfTransport = 13.82,
                         WorkDateStart = new(2023, 3, 1, 9, 1, 1),
                         WorkDateEnd = new(2023, 3, 6, 18, 1, 1),
                         ListOfMaterials = new List<MaterialPriceMdl>{
-                        new MaterialPriceMdl() {MaterialCost = 34.99, MaterialName = "door"},
-                        new MaterialPriceMdl() {MaterialCost = 3.99, MaterialName = "hinge set"},
-                        new MaterialPriceMdl() {MaterialCost = 17.99, MaterialName = "lock"},
+                        new MaterialPriceMdl() {MaterialCost = 34.99, MaterialName = "Door"},
+                        new MaterialPriceMdl() {MaterialCost = 3.99, MaterialName = "Hinge set"},
+                        new MaterialPriceMdl() {MaterialCost = 17.99, MaterialName = "Lock"},
                         }
                     }
                 },
@@ -54,15 +54,15 @@ namespace DatabaseAccess
                     JobValues = new()
                     {
                         JobLocation = "Doncaster",
-                        CostOfLabour = 127,
-                        CostOfTransport = 56,
+                        CostOfLabour = 127.33,
+                        CostOfTransport = 56.78,
                         WorkDateStart = new(2023, 11, 20, 9, 1, 1),
                         WorkDateEnd = new(2023, 12, 2, 17, 30, 1),
                         ListOfMaterials = new List<MaterialPriceMdl>{
-                        new MaterialPriceMdl() {MaterialCost = 4.99, MaterialName = "screws"},
-                        new MaterialPriceMdl() {MaterialCost = 15.99, MaterialName = "2 2x4 wood planks"},
-                        new MaterialPriceMdl() {MaterialCost = 3.99, MaterialName = "hinge set"},
-                        new MaterialPriceMdl() {MaterialCost = 12.99, MaterialName = "paint"},
+                        new MaterialPriceMdl() {MaterialCost = 4.99, MaterialName = "Screws"},
+                        new MaterialPriceMdl() {MaterialCost = 15.99, MaterialName = "2 2x4 Wood planks"},
+                        new MaterialPriceMdl() {MaterialCost = 3.99, MaterialName = "Hinge set"},
+                        new MaterialPriceMdl() {MaterialCost = 12.99, MaterialName = "Paint"},
                         }
                     }
                 }

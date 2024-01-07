@@ -6,7 +6,7 @@ namespace MustashMethod
 {
     public class GenerateReport
     {
-        public static void CreateJobReport(int JobNumber, string SaveName)
+        public static bool CreateJobReport(int JobNumber, string SaveName)
         {
             var FoundJob = MockDatabase.ReturnJobData(JobNumber);
 
@@ -23,9 +23,12 @@ namespace MustashMethod
 
                 if (!CanGenerateFileInTemp(SaveName, result))
                     Console.WriteLine("Error occured when trying to save report");
+                return true;
             }
             else
                 Console.WriteLine("There was no matching Job Id");
+
+            return false;
         }
 
         private static string CompileReport(int JobNumber, JobModelMdlLink FoundJob, string templateString)
